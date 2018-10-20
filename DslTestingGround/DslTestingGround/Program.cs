@@ -18,20 +18,20 @@ namespace DslTestingGround
                     .WriteJson()
 
                     // DataFunctions.Copy()
-                    .FromFile("C:\\projects\\try.json")
+                    .FromFile("try.json")
                     .ToZipPart(fileName: "try.json", creationDateTime: DateTime.Now)
                     .ToZip(level: 3)
-                    // .ToFile("C:\\projects\\try2.json");
-                    .ToFile("C:\\projects\\try.zip");
+                    // .ToFile("try2.json");
+                    .ToFile("try.zip");
 
             Console.WriteLine(success ? "Success!" : $"Exception:\"{exception.Message}\", tack trace: {exception.StackTrace}");
 
             // Trying to do the same thing OOP-style
-            var result = Strategy.Copy()
-                .Transit(Transition.FromFile("try.json"))
-                .Transit(Transition.WriteFile("try2.json"));
+            // var result = Strategy.Copy()
+            //     .Transit(Transition.FromFile("try.json"))
+            //     .Transit(Transition.WriteFile("try2.json"));
 
-            Console.WriteLine(result.IsSuccess ? "Success!" : $"Exception:\"{result.Exception.Message}\", tack trace: {result.Exception.StackTrace}");
+            // Console.WriteLine(result.IsSuccess ? "Success!" : $"Exception:\"{result.Exception.Message}\", tack trace: {result.Exception.StackTrace}");
         }
     }
 }

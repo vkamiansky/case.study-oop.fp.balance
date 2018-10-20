@@ -17,7 +17,7 @@ namespace DslTestingGround
 
     public interface ITypeTransition<TIn, TOut>
     {
-        TOut DoTransit(TIn innerObject);
+        TOut DoTransit(TIn source);
     }
 
     public interface ISupportTypeTransition<TIn>
@@ -39,21 +39,12 @@ namespace DslTestingGround
     {
         private class CopyStrategy : IDataRelayStrategy
         {
-            public void Relay(Stream inputStream, Stream outputStream)
-            {
-                inputStream.CopyTo(outputStream);
-            }
+            public void Relay(Stream inputStream, Stream outputStream) => inputStream.CopyTo(outputStream);
 
-            public TOut Transit<TOut>(ITypeTransition<IDataRelayStrategy, TOut> transition)
-            {
-                return transition.DoTransit(this);
-            }
+            public TOut Transit<TOut>(ITypeTransition<IDataRelayStrategy, TOut> transition) => transition.DoTransit(this);
         }
 
-        public static IDataRelayStrategy Copy()
-        {
-            return new CopyStrategy();
-        }
+        public static IDataRelayStrategy Copy() => new CopyStrategy();
     }
 
     public static class Transition
@@ -74,28 +65,17 @@ namespace DslTestingGround
                 public void Write(Stream outputStream)
                 {
                     using (var inputStream = File.Open(_filePath, FileMode.Open))
-                    {
                         _relayStrategy.Relay(inputStream, outputStream);
-                    }
                 }
 
-                public TOut Transit<TOut>(ITypeTransition<IDataWritingStrategy, TOut> transition)
-                {
-                    return transition.DoTransit(this);
-                }
+                public TOut Transit<TOut>(ITypeTransition<IDataWritingStrategy, TOut> transition) => transition.DoTransit(this);
             }
 
             private string _filePath;
 
-            public FromFileTransition(string filePath)
-            {
-                _filePath = filePath;
-            }
+            public FromFileTransition(string filePath) => _filePath = filePath;
 
-            public IDataWritingStrategy DoTransit(IDataRelayStrategy source)
-            {
-                return new FromFileStrategy(source, _filePath);
-            }
+            public IDataWritingStrategy DoTransit(IDataRelayStrategy source) => new FromFileStrategy(source, _filePath);
         }
 
         private class WriteFileTransition : ITypeTransition<IDataWritingStrategy, Result>
@@ -112,9 +92,8 @@ namespace DslTestingGround
                 try
                 {
                     using (var outputStream = File.Open(_filePath, FileMode.Create))
-                    {
                         source.Write(outputStream);
-                    }
+
                     return new Result(true, null);
                 }
                 catch (Exception ex)
@@ -123,13 +102,7 @@ namespace DslTestingGround
                 }
             }
         }
-        public static ITypeTransition<IDataRelayStrategy, IDataWritingStrategy> FromFile(string filePath)
-        {
-            return new FromFileTransition(filePath);
-        }
-        public static ITypeTransition<IDataWritingStrategy, Result> WriteFile(string filePath)
-        {
-            return new WriteFileTransition(filePath);
-        }
+        public static ITypeTransition<IDataRelayStrategy, IDataWritingStrategy> FromFile(string filePath) => new FromFileTransition(filePath);
+        public static ITypeTransition<IDataWritingStrategy, Result> WriteFile(string filePath) => new WriteFileTransition(filePath);
     }
 }

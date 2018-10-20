@@ -41,25 +41,21 @@ namespace DslTestingGround
             };
         }
 
-        public static Action<Stream> FromFile(this Action<Stream, Stream> processStream, string path)
+        public static Action<Stream> FromFile(this Action<Stream, Stream> transferData, string path)
         {
             return outputStream =>
             {
                 using (var inputStream = File.Open(path, FileMode.Open))
-                {
-                    processStream(inputStream, outputStream);
-                }
+                    transferData(inputStream, outputStream);
             };
         }
 
-        public static Action<Stream> FromString(this Action<Stream, Stream> processStream, string text)
+        public static Action<Stream> FromString(this Action<Stream, Stream> transferData, string text)
         {
             return outputStream =>
             {
                 using (var inputStream = new MemoryStream(Encoding.UTF8.GetBytes(text)))
-                {
-                    processStream(inputStream, outputStream);
-                }
+                    transferData(inputStream, outputStream);
             };
         }
 
@@ -123,14 +119,12 @@ namespace DslTestingGround
              };
         }
 
-        public static (bool success, Exception exception) ToFile(this Action<Stream> useStream, string path)
+        public static (bool success, Exception exception) ToFile(this Action<Stream> useOutputStream, string path)
         {
             try
             {
                 using (var outputStream = File.Open(path, FileMode.Create))
-                {
-                    useStream(outputStream);
-                }
+                    useOutputStream(outputStream);
                 return (true, null);
             }
             catch (Exception ex)
