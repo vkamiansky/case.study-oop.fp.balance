@@ -2,8 +2,10 @@
 
 13.10.2018 на конференции SECR в Москве и 16.10.2018 в рамках семинара First Line Software в Санкт-Петербурге был прочитан доклад по теме "ООП и ФП в мейнстримовом программировании: ищем идеальный баланс с C# и F#". Конечно же, баланс, о котором идёт речь в докладе,  лежит в плоскости проектирования и инженерии на стыке двух парадигм. Осознание дуальности и пересечения идей, техник ООП и ФП даёт возможность прийти к более глубокому их пониманию, а значит и к эффективному их применению на практике. Ещё Роберт Кирхгоф говорил, что нет ничего практичнее хорошей теории. Здесь вы сможете найти материалы к докладу, в том числе развёрнутые ответы на наиболее острые вопросы аудитории, использовать код из демо-части, как лабораторию для проверки своих идей. Кроме того, раздел Issues - отличный способ поделиться своими ценными мыслями.
 
- - [__Презентация к докладу: ООП и ФП: ищем баланс с C# и F#__](https://raw.github.com/wiki/vkamiansky/case.study-oop.fp.balance/oop-fp-finding-balance.pptx)
-
+ - [__Презентация к докладу в формате PPTX__](https://raw.github.com/wiki/vkamiansky/case.study-oop.fp.balance/oop-fp-finding-balance.pptx)
+ 
+ [![Видео с семинара в First Line Software](https://downloader.disk.yandex.ru/preview/8263e86e217c01cf322918715d6d96cca232583f67a9c818c2b242d3a147bfd1/5bcd1d42/wN0C-EWMKjYBVgSmEFSM-e1sHHgJB0Dc9h7iE7IGM8S9bij45Qbfp0yy-T1mgkHLBfDY_WJUtlDwkbCsJQrETQ==?uid=0&filename=FLS%20митап%2016%20окт%202018.mp4&disposition=inline&hash=&limit=0&content_type=image/jpeg&tknv=v2&size=1920x1080)](https://yadi.sk/i/JbDVA8Zkj1lvJA)
+ 
 ## Острый вопрос: Декларативный подход с чистым ООП – должно быть возможно! (или без ФП нельзя?)
 
 ### Что мы вообще хотим от декларативного программирования? 
@@ -40,8 +42,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        var (success, exception) =
-    DataFunctions.Copy()
+        var (success, exception) = DataFunctions.Copy()
             .FromFile("try.json")
             .ToFile("try2.json");
     }
