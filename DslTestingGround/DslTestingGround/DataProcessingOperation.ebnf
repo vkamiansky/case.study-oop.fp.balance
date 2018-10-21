@@ -1,0 +1,4 @@
+/* Example data processing DSL pseudo-code syntax notation in extended Backus-Naur form. */
+
+DataProcessingOperation
+         ::= ( 'DataFunctions' ( '.Copy' | '.ReadJsonArray' '.Map'? '.WriteJson' ) ( '.FromFile' | '.FromString' ) | EnumerableSequence '.ToJson' ) ( '.ToZipPart' '.ToZip' )* '.ToFile'
