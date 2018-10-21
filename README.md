@@ -4,10 +4,6 @@
 
  - [__Презентация к докладу: ООП и ФП: ищем баланс с C# и F#__](https://raw.github.com/wiki/vkamiansky/case.study-oop.fp.balance/oop-fp-finding-balance.pptx)
  
- - Видео с семинара в First Line Software
- 
- [![Видео с семинара в First Line Software](https://downloader.disk.yandex.ru/preview/8263e86e217c01cf322918715d6d96cca232583f67a9c818c2b242d3a147bfd1/5bcd1d42/wN0C-EWMKjYBVgSmEFSM-e1sHHgJB0Dc9h7iE7IGM8S9bij45Qbfp0yy-T1mgkHLBfDY_WJUtlDwkbCsJQrETQ==?uid=0&filename=FLS%20митап%2016%20окт%202018.mp4&disposition=inline&hash=&limit=0&content_type=image/jpeg&tknv=v2&size=1920x1080)](https://yadi.sk/i/JbDVA8Zkj1lvJA)
-
 ## Острый вопрос: Декларативный подход с чистым ООП – должно быть возможно! (или без ФП нельзя?)
 
 ### Что мы вообще хотим от декларативного программирования? 
