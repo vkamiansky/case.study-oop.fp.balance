@@ -40,8 +40,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        var (success, exception) =
-    DataFunctions.Copy()
+        var (success, exception) = DataFunctions.Copy()
             .FromFile("try.json")
             .ToFile("try2.json");
     }
