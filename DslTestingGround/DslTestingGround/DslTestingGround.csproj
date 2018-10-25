@@ -11,11 +11,4 @@
     <PackageReference Include="Yaapii.Atoms" Version="0.20.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="OOPSolution.cs" />
-    <Compile Remove="ObjectWay\Output.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="try.gzip" />
-  </ItemGroup>
 </Project>
