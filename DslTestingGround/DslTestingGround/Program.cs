@@ -24,7 +24,8 @@ namespace DslTestingGround
                     // .ToFile("try2.json");
                     .ToFile("try.zip");
 
-            Console.WriteLine(success ? "Success!" : $"Exception:\"{exception.Message}\", stack trace: {exception.StackTrace}");
+             Console.WriteLine(success ? "Success!" : $"Exception:\"{exception.Message}\", stack trace: {exception.StackTrace}");
+            // new ObjectWay().Run();
 
             // Trying to do the same thing OOP-style
             // var result = Strategy.Copy()
