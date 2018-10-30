@@ -4,7 +4,7 @@ using Yaapii.Atoms.IO;
 
 namespace DslTestingGround
 {
-    public class ObjectWay
+    public class ObjectsWay
     {
         public void Run()
         {
@@ -25,8 +25,17 @@ namespace DslTestingGround
         {
             new LengthOf(
               new TeeInput(
-                  new InputOf(new Uri(FilePath)),
+                    new InputOf(new Uri(FilePath)),
                     new GZipOutput(new OutputTo(new Uri(ZipFilePath))))
+            ).Value();
+        }
+
+        void CopyFile(String sourceFilePath, String outputFilePath)
+        {
+            new LengthOf(
+              new TeeInput(
+                    new InputOf(new Uri(sourceFilePath)),
+                    new OutputTo(new Uri(outputFilePath)))
             ).Value();
         }
     }
