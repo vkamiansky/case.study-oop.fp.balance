@@ -25,7 +25,7 @@ namespace DslTestingGround
                     .ToFile("try.zip");
 
              Console.WriteLine(success ? "Success!" : $"Exception:\"{exception.Message}\", stack trace: {exception.StackTrace}");
-            // new ObjectWay().Run();
+            // new ObjectsWay().Run();
 
             // Trying to do the same thing OOP-style
             // var result = Strategy.Copy()
